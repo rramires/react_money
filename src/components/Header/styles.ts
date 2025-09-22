@@ -32,6 +32,8 @@ export const NewTransactionButton = styled.button`
 	&:hover {
 		background: ${(props) => props.theme['green-700']};
 		color: ${(props) => props.theme['gray-100']};
-		transition: background-color 0.2s;
+		transition:
+			background-color 0.2s,
+			color 0.1s;
 	}
 `
