@@ -57,7 +57,7 @@ export function Transactions() {
 									<td>{transaction.description}</td>
 									<td>
 										<PriceHighLight
-											variant={transaction.type}
+											$variant={transaction.type}
 										>
 											{transaction.price}
 										</PriceHighLight>
