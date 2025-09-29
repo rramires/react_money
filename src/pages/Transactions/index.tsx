@@ -3,6 +3,7 @@ import { SearchForm } from '../../components/SearchForm'
 import { Summary } from '../../components/Summary'
 import { TransactionsContext } from '../../contexts/TransactionsContext'
 import { TransactionsProvider } from '../../contexts/TransactionsProvider'
+import { dateFormatter, priceFormatter } from '../../utils/formatter'
 import {
 	PriceHighLight,
 	TransactionsContainer,
@@ -32,11 +33,19 @@ export function Transactions() {
 											<PriceHighLight
 												$variant={transaction.type}
 											>
-												{transaction.price}
+												{transaction.type ===
+													'outcome' && '- '}
+												{priceFormatter(
+													transaction.price,
+												)}
 											</PriceHighLight>
 										</td>
 										<td>{transaction.category}</td>
-										<td>{transaction.createdAt}</td>
+										<td>
+											{dateFormatter(
+												transaction.createdAt,
+											)}
+										</td>
 									</tr>
 								)
 							})}
