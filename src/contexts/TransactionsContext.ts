@@ -9,8 +9,8 @@ export interface Transaction {
 	createdAt: string
 }
 
-interface TransactionContextType {
+interface TransactionContextTypes {
 	transactions: Transaction[]
 }
 
-export const TransactionsContext = createContext({} as TransactionContextType)
+export const TransactionsContext = createContext({} as TransactionContextTypes)
