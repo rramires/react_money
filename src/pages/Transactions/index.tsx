@@ -18,42 +18,36 @@ export function Transactions() {
 
 	return (
 		<div>
-			<TransactionsProvider>
-				<Header />
-				<Summary />
+			<Header />
+			<Summary />
 
-				<TransactionsContainer>
-					<SearchForm />
-					<TransactionsTable>
-						<tbody>
-							{transactions.map((transaction) => {
-								return (
-									<tr key={transaction.id}>
-										<td>{transaction.description}</td>
-										<td>
-											<PriceHighLight
-												$variant={transaction.type}
-											>
-												{transaction.type ===
-													'outcome' && '- '}
-												{priceFormatter(
-													transaction.price,
-												)}
-											</PriceHighLight>
-										</td>
-										<td>{transaction.category}</td>
-										<td>
-											{dateFormatter(
-												transaction.createdAt,
-											)}
-										</td>
-									</tr>
-								)
-							})}
-						</tbody>
-					</TransactionsTable>
-				</TransactionsContainer>
-			</TransactionsProvider>
+			<TransactionsContainer>
+				<SearchForm />
+				<TransactionsTable>
+					<tbody>
+						{transactions.map((transaction) => {
+							return (
+								<tr key={transaction.id}>
+									<td>{transaction.description}</td>
+									<td>
+										<PriceHighLight
+											$variant={transaction.type}
+										>
+											{transaction.type === 'outcome' &&
+												'- '}
+											{priceFormatter(transaction.price)}
+										</PriceHighLight>
+									</td>
+									<td>{transaction.category}</td>
+									<td>
+										{dateFormatter(transaction.createdAt)}
+									</td>
+								</tr>
+							)
+						})}
+					</tbody>
+				</TransactionsTable>
+			</TransactionsContainer>
 		</div>
 	)
 }
